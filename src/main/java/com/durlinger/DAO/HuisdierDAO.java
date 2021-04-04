@@ -46,7 +46,7 @@ public class HuisdierDAO
 			if(rs.next());
 			{
 				h1.setNaam(rs.getString("naam"));
-				h1.setLeeftijd(rs.getInt("leeftijd"));
+				h1.setLeeftijd(rs.getString("leeftijd"));
 				h1.setDiersoort(rs.getString("diersoort"));
 			}
 		}
@@ -73,7 +73,7 @@ public class HuisdierDAO
 				{
 					Huisdier h = new Huisdier();
 					h.setNaam(rs.getString(1));
-					h.setLeeftijd(rs.getInt(2));
+					h.setLeeftijd(rs.getString(2));
 					h.setDiersoort(rs.getString(3));
 					
 					huisdieren.add(h);
@@ -96,7 +96,7 @@ public class HuisdierDAO
 			{
 				PreparedStatement st = con.prepareStatement(sql);
 				st.setString(1, h1.getNaam());
-				st.setInt(2, h1.getLeeftijd()); 
+				st.setString(2, h1.getLeeftijd()); 
 				st.setString(3, h1.getDiersoort());
 				st.executeUpdate();
 			}
@@ -115,7 +115,7 @@ public class HuisdierDAO
 				PreparedStatement st = con.prepareStatement(sql);
 				
 				st.setString(1, h1.getNaam());
-				st.setInt(2, h1.getLeeftijd()); 	
+				st.setString(2, h1.getLeeftijd()); 	
 				st.setString(3, h1.getDiersoort());
 				st.executeUpdate();
 			}
